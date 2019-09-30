@@ -12,8 +12,7 @@ function renderChart(data, labels) {
 }
 
 $("#renderBtn").click(
-    d3.csv('https://github.com/rohanjhunja/dvschallenge_rj/blob/master/test.csv')
-  .then(makeChart);
+    d3.csv('https://raw.githubusercontent.com/rohanjhunja/dvschallenge_rj/master/test.csv').then(makeChart());
 
 function makeChart(dams) {
   // dams is an array of objects where each object represents a dam
