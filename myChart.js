@@ -19,7 +19,7 @@ function makeChart(dams) {
   // dams is an array of objects where each object represents a dam
     var damLabels = dams.map(function(d) {return d.Dam});
     var volData = dams.map(function(d) {return d.Volume});
-    renderChart(volData,damLabels);
+    //renderChart(volData,damLabels);
     /*var chart = new Chart('chart', {
     type: 'horizontalBar',
     data: {
@@ -32,7 +32,12 @@ function makeChart(dams) {
     }
   });*/
 }
-    
+    function () {
+        
+        data = volData;
+        labels =  damLabels;
+        renderChart(data, labels);
+    }
     
     /*function () {
         
