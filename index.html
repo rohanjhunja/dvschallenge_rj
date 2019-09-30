@@ -7,10 +7,10 @@
 
       function drawVisualization() {
         var wrapper = new google.visualization.ChartWrapper({
-          chartType: 'LineChart',
+          chartType: 'BarChart',
           dataSourceUrl: 'http://spreadsheets.google.com/tq?key=164x1Na7AV2Wm58_HBtG8mFxQX3emOVtPl3wYAQbYS2Q&pub=1',
           query: 'SELECT COUNT(A) GROUP BY A PIVOT B',
-          options: {'title': 'FREELANCE?'},
+          options: {isStacked: 'percent', 'title': 'FREELANCE?'},
           containerId: 'vis_div'
         });
         wrapper.draw()
