@@ -24,13 +24,13 @@ var margin = {top: 20, right: 20, bottom: 70, left: 40},
     width = 600 - margin.left - margin.right,
     height = 300 - margin.top - margin.bottom;
 // Parse the date / time
-var	parseDate = d3.time.format("%Y-%m").parse;
+var	parseDate = d3.time.format("%Y").parse;
 var x = d3.scale.ordinal().rangeRoundBands([0, width], .05);
 var y = d3.scale.linear().range([height, 0]);
 var xAxis = d3.svg.axis()
     .scale(x)
     .orient("bottom")
-    .tickFormat(d3.time.format("%Y-%m"));
+    .tickFormat(d3.time.format("%Y"));
 var yAxis = d3.svg.axis()
     .scale(y)
     .orient("left")
@@ -41,10 +41,10 @@ var svg = d3.select("body").append("svg")
   .append("g")
     .attr("transform", 
           "translate(" + margin.left + "," + margin.top + ")");
-d3.csv("bar-data.csv", function(error, data) {
+d3.csv("test.csv", function(error, data) {
     data.forEach(function(d) {
-        d.date = parseDate(d.date);
-        d.value = +d.value;
+        d.date = parseDate(d.Equakeyear);
+        d.value = +d.Dam;
     });
 	
   x.domain(data.map(function(d) { return d.date; }));
