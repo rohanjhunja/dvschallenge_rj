@@ -7,10 +7,10 @@
 
       function drawVisualization() {
         var wrapper = new google.visualization.ChartWrapper({
-          chartType: 'LineChart',
-          dataSourceUrl: 'http://spreadsheets.google.com/tq?key=pCQbetd-CptGXxxQIG7VFIQ&pub=1',
-          query: 'SELECT A,D WHERE D > 100 ORDER BY D',
-          options: {'title': 'Countries'},
+          chartType: 'BarChart',
+          dataSourceUrl: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTDlQuLkPGhlq5L0-CXbPoOhc4t6DZ9x9v2NFs8GpuVdcWl22FADnEeX2pp-rJh6ef2jaKiLz-gmy6b/pubhtml?gid=1458571096&single=true',
+          query: 'QUERY($A$2:$B, "select count(A) group by A pivot B ",1)',
+          options: {'title': 'Are you a freelancer/consultant?'},
           containerId: 'vis_div'
         });
         wrapper.draw()
