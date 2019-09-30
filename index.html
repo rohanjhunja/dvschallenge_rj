@@ -8,9 +8,9 @@
       function drawVisualization() {
         var wrapper = new google.visualization.ChartWrapper({
           chartType: 'LineChart',
-          dataSourceUrl: 'http://spreadsheets.google.com/tq?key=pCQbetd-CptGXxxQIG7VFIQ&pub=1',
-          query: 'SELECT A,D WHERE D > 100 ORDER BY D',
-          options: {'title': 'Countries'},
+          dataSourceUrl: 'http://spreadsheets.google.com/tq?key=164x1Na7AV2Wm58_HBtG8mFxQX3emOVtPl3wYAQbYS2Q&pub=1',
+          query: 'SELECT COUNT(A) GROUP BY A PIVOT B',
+          options: {'title': 'FREELANCE?'},
           containerId: 'vis_div'
         });
         wrapper.draw()
