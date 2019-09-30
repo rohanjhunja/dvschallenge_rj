@@ -1,4 +1,4 @@
-Dam/reservoir ,Country ,Height,Volumen 10^6 m3,Filled year,Equake year,Mmax
+Dam ,Country ,Height ,Volume ,Filledyear ,Equakeyear ,Mmax
 Marathon,Greece,63,41,1930,1938,5.7
 Hoover,USA,221,36.703,1936,1939,5
 Kurobe,Japan,186,199,1960,1961,4.9
