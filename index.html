@@ -14,10 +14,10 @@
       // instantiates the pie chart, passes in the data and
       // draws it.
       function drawChart() {
-        var queryString = encodeURIComponent('SELECT C COUNT(C) WHERE C IS NOT NULL AND B IS NOT NULL  PIVOT B');
+        var queryString = encodeURIComponent('SELECT A, H, O, Q, R, U LIMIT 5 OFFSET 8');
 
       var query = new google.visualization.Query(
-          'https://docs.google.com/spreadsheets/164x1Na7AV2Wm58_HBtG8mFxQX3emOVtPl3wYAQbYS2Q/tq?gid=0&headers=1&tq=' + queryString);
+          'https://docs.google.com/spreadsheets/d/1XWJLkAwch5GXAt_7zOFDcg8Wm8Xv29_8PWuuW15qmAE/gviz/tq?gid=0&headers=1&tq=' + queryString);
       query.send(handleQueryResponse);
     }
 
