@@ -9,10 +9,11 @@
         var wrapper = new google.visualization.ChartWrapper({
           chartType: 'BarChart',
           dataSourceUrl: 'http://spreadsheets.google.com/tq?key=164x1Na7AV2Wm58_HBtG8mFxQX3emOVtPl3wYAQbYS2Q&pub=1',
-          query: 'SELECT A, COUNT(A) WHERE A IS NOT NULL AND B IS NOT NULL GROUP BY A PIVOT B',
+          query: 'SELECT C,A, COUNT(C) WHERE C IS NOT NULL AND B IS NOT NULL GROUP BY C,A  PIVOT B ',
           options: {isStacked: 'percent', 'title': 'FREELANCE?'},
           containerId: 'vis_div'
         });
+        wrapper.setView({'columns': [1,2,3,4});
         wrapper.draw()
       }
     </script>
