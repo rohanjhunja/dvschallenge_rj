@@ -6,15 +6,25 @@
       google.charts.setOnLoadCallback(drawVisualization);
 
       function drawVisualization() {
-        var wrapper = new google.visualization.ChartWrapper({
-          chartType: 'BarChart',
-          dataSourceUrl: 'http://spreadsheets.google.com/tq?key=164x1Na7AV2Wm58_HBtG8mFxQX3emOVtPl3wYAQbYS2Q&pub=1',
-          query: 'SELECT C,A, COUNT(C) WHERE C IS NOT NULL AND B IS NOT NULL GROUP BY C,A  PIVOT B ',
-          options: {isStacked: 'percent', 'title': 'FREELANCE?'},
-          containerId: 'vis_div'
-        });
-        wrapper.draw()
+      
+      var queryString = encodeURIComponent('SELECT A, H, O, Q, R, U LIMIT 5 OFFSET 8');
+
+      var query = new google.visualization.Query(
+          'https://docs.google.com/spreadsheets/d/1XWJLkAwch5GXAt_7zOFDcg8Wm8Xv29_8PWuuW15qmAE/gviz/tq?sheet=Sheet1&headers=1&tq=' + queryString);
+      query.send(handleSampleDataQueryResponse);
+    }
+
+    function handleSampleDataQueryResponse(response) {
+      if (response.isError()) {
+        alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+        return;
       }
+
+      var data = response.getDataTable();
+      var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+      chart.draw(data, { height: 400 });
+    }
+      
     </script>
   </head>
   <body style="font-family: Arial;border: 0 none;">
