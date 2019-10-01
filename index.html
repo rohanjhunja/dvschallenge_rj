@@ -16,7 +16,7 @@
       function drawChart() {
         
       var query = new google.visualization.Query(
-          "https://docs.google.com/spreadsheets/d/164x1Na7AV2Wm58_HBtG8mFxQX3emOVtPl3wYAQbYS2Q/gviz/tq?sheet=Sheet1&headers=1&tq=select%20C%2CA%2C%20count(C)%20where%20C%20is%20not%20null%20and%20B%20is%20not%20null%20group%20by%20C%2CA%20%20pivot%20B";);
+          "https://docs.google.com/spreadsheets/d/164x1Na7AV2Wm58_HBtG8mFxQX3emOVtPl3wYAQbYS2Q/gviz/tq?sheet=Sheet1&headers=1&tq=select%20C%2CA%2C%20count(C)%20where%20C%20is%20not%20null%20and%20B%20is%20not%20null%20group%20by%20C%2CA%20%20pivot%20B");
       query.send(handleSampleDataQueryResponse);
     }
 
