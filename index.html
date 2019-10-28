@@ -30,11 +30,30 @@
       var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
       chart.draw(data, { height: 400 });
     }
+      
+     function changeColor() {
+      var eID = document.getElementById("colors");
+      var colorVal = eID.options[eID.selectedIndex].value;
+      var colortxt = eID.options[eID.selectedIndex].text;
+      document.getElementById('colorDiv').style.background=colortxt;
+      }
        
     </script>
   </head>
 
   <body>
+    <select id="colors" onchange="changeColor()">
+  <option value="1">Red</option>
+  <option value="2">Blue</option>
+  <option value="3" >Green</option>
+  <option value="4">Yellow</option>
+  <option value="5">Orange</option>
+  <option value="6" selected="selected">White</option>
+</select>
+<br><br>
+<div id="colorDiv" style="width:200px;height:50px;border:1px solid black;">
+Change my color
+</div>
     <div id="chart_div"></div>
   </body>
 </html>
