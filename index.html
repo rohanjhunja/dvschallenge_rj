@@ -15,10 +15,10 @@
       // draws it.
       function drawChart() {
         
-        var eID = document.getElementById("colors");
-      var colorVal = eID.options[eID.selectedIndex].value;
-      var x = eID.options[eID.selectedIndex].text;
-        
+       // var eID = document.getElementById("colors");
+     // var colorVal = eID.options[eID.selectedIndex].value;
+     // var x = eID.options[eID.selectedIndex].text;
+      var x = "D";  
       var query = new google.visualization.Query(
           "https://docs.google.com/spreadsheets/d/164x1Na7AV2Wm58_HBtG8mFxQX3emOVtPl3wYAQbYS2Q/gviz/tq?sheet=Sheet1&headers=1&tq=select%20A%2AX%20count(A)%20where%20A%20is%20not%20null%20and%20B%20is%20not%20null%20group%20by%20A%20%20pivot%20"+x);
       query.send(handleSampleDataQueryResponse);
@@ -41,14 +41,7 @@
   </head>
 
   <body>
-    <select id="colors" onchange="drawChart()">
-  <option value="D">What area is your next priority for improving your data visualization skills?</option>
-  <option value="E">Are you a freelancer/consultant?</option>
-  <option value="I" >Which one of these is the closest to describing your role?</option>
-  <option value="J">What is your yearly pay?</option>
-  <option value="AQ">What is your educational background</option>
-  <option value="AT" selected="selected">What's your gender identity?</option>
-</select>
+  
     <div id="chart_div"></div>
   </body>
 </html>
