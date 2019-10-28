@@ -3,6 +3,13 @@
     <!--Load the AJAX API-->
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
+      
+       function changeColor() {
+      var eID = document.getElementById("colors");
+      var colorVal = eID.options[eID.selectedIndex].value;
+      var colortxt = eID.options[eID.selectedIndex].text;
+      document.getElementById('colorDiv').style.background=colortxt;
+      }
 
       // Load the Visualization API and the corechart package.
       google.charts.load('current', {'packages':['corechart']});
@@ -31,12 +38,7 @@
       chart.draw(data, { height: 400 });
     }
       
-     function changeColor() {
-      var eID = document.getElementById("colors");
-      var colorVal = eID.options[eID.selectedIndex].value;
-      var colortxt = eID.options[eID.selectedIndex].text;
-      document.getElementById('colorDiv').style.background=colortxt;
-      }
+    
        
     </script>
   </head>
