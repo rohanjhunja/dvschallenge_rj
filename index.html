@@ -11,7 +11,10 @@
       // instantiates the pie chart, passes in the data and
       // draws it.
       function drawChart() {
-      var x = "B";  
+      var eID = document.getElementById("choose");
+      var x = eID.options[eID.selectedIndex].value;
+      
+        
       var query = new google.visualization.Query(
           "https://docs.google.com/spreadsheets/d/164x1Na7AV2Wm58_HBtG8mFxQX3emOVtPl3wYAQbYS2Q/gviz/tq?sheet=Sheet1&headers=1&tq=select%20A%2C%20count(A)%20where%20A%20is%20not%20null%20and%20B%20is%20not%20null%20group%20by%20A%20%20pivot%20"+x);
       query.send(handleSampleDataQueryResponse);
@@ -31,6 +34,10 @@
 
   <body>
     <h1> History of Data Viz</h1>
+    <select id="choose" onchange="drawChart()">
+      <option value="D">What area is your next priority for improving your data visualization skills?</option>
+      <option value="AX" selected="selected">What's your gender identity?</option>
+    </select>
     <div id="chart_div"></div>
   </body>
 </html>
