@@ -11,13 +11,19 @@
       // instantiates the pie chart, passes in the data and
       // draws it.
       var x = 'AY';
+      var y = 'AY';
       function drawChart() {
       var eID = document.getElementById("choose");
       x = eID.options[eID.selectedIndex].value;
+      
       var div = document.getElementById('heading');
       div.innerHTML = eID.options[eID.selectedIndex].text;
-      
-      div = document.getElementById('bodytext');
+
+      document.getElementById(y).style.display = "none";
+      document.getElementById(x).style.display = "block";
+      y=x;
+
+      div = document.getElementById('nextlink');
       div.innerHTML = eID.options[eID.selectedIndex+1].text;
         
       var query = new google.visualization.Query(
@@ -43,35 +49,59 @@
     </script>
   </head>
 
-  <body onclick="next()">
-    <h1 style="font-size: 50px; font-family: sans-serif; text-align: center; padding-top: 50px;">People in Data Viz</h1>
-    <div style="padding: 0 200px;" >
-      <div id="textbox" style="width: 30%; height: 600px; float: left;">
-        <div id="heading" style="font-size: 30px; font-family: sans-serif; font-weight: bold;"></div>
-        <div id="bodytext" style="font-size: 20px; font-family: sans-serif; margin-top: 10px;"></div>
+  <body >
+    <h1 style="font-size: 50px; font-family: sans-serif; text-align: center; padding-top: 50px; margin-bottom: 70px;">People in Data Viz</h1>
+    <div style="padding: 0 250px;" >
+      <div id="textbox" style="width: 30%; height: 600px; float: left; position: relative;">
+        <div id="heading" style="font-size: 30px; font-family: sans-serif; font-weight: bold; padding-right: 80px;"></div>
+        <div id="bodytext" style="font-size: 16px; font-family: sans-serif; margin-top: 10px; padding-right: 80px; line-height: 1.5;">
+
+              <div id="AY" style="display:none;">The Data Viz community consists of a wide range of people- from novices fresh off their first visualisation projects to seasoned professionals who've been in the field over ten years and counting.<br><br> It is a 'young' community with almost the same number of people with under a couple of years into the field as those with over 10 years of experience.</div>
+              <div id="AZ" style="display:none;">This Visualisation displays the composition of the Data Viz community and tells a story of Data Viz as it changes over a 10 year period.<br> <br>Responses from people were grouped by the year they started working in Data Viz. The data is seen here as percentages of all these responses.</div>
+              <div id="B" style="display:none;">Most people in the community are self-taught, but a rising trend sees more people picking up the skills in school.</div>
+              <div id="D" style="display:none;">Novices say they need to improve their skills with existing libraries while 7-10 years into the field people say they need to learn new libraries. More specific needs come in across the years. <br> A significant number of people with 10+ years of XP (11) say they do not need to improve their skills.</div>
+              <div id="E" style="display:none;">Fewer people work in DV as consultants and freelancers.</div>
+              <div id="F" style="display:none;">More people are coming into the field without DV as their primary focus.</div>
+              <div id="G" style="display:none;">Around 2012 there was an increase in people hired for DV specific roles.</div>
+              <div id="H" style="display:none;">People with about 2-3 years of XP seemed to find themselves doing more DV than expected.</div>
+              <div id="I" style="display:none;">More people are being hired as analysts than before. People with more then 10 years of experience have moved into leadership roles. <br> Designers, developers, engineers, scientists, academics and analysts have a constant distribution across the 10 years.</div>
+              <div id="J" style="display:none;">As expected salaries are seen to increase with years of experience. Poeple entering the field start with about $60k a year while people with 10 years of experience average at abouta $100k.</div>
+              <div id="M" style="display:none;">More recently younger people are not seeing data specialist roles at work. This may be because of the field diversifying or the need for experience before one can take specialist positions. An interesting trend is that specialists are fewer around people with above 7 years of XP.</div>
+              <div id="X" style="display:none;">People 4-5 years into the field work in organisations that have a set list of tools. This group also finds more people working in the private sector than others. </div>
+              <div id="AC" style="display:none;">Most audiences seem to use data visualisations weekly, followed by daily and then monthly. Very few people across the years engage their users with quarterly, hourly or yearly data viz.</div>
+              <div id="AE" style="display:none;">People with more experience in teh field seem to work in more collaborative environments.</div>
+              <div id="AP" style="display:none;">Enthusiasm towards the field is tilted towards newer entrants.</div>
+              <div id="AQ" style="display:none;">Most members in the community have completed or are in a masters program. This is followed by graduates with bachelors degrees.<br><br>Two people had dropped out. One right in the 9th grade!</div>
+              <div id="AR" style="display:none;">The largest group of people work in the private sector, followed by academics, public sector, not-for-profits and Journalism. </div>
+              <div id="AS" style="display:none;">People in the Data Viz community come from a wide variety of programs. The largest groups of people in the field come from Computer Science, Economics and Psychology. </div>
+              <div id="AT" style="display:none;">The visualisation highlights that an increasing number of women entering the field in the last 5 years. The number of people who prefer not to say increases towards the older age group.</div>
+              <div id="AU" style="display:none;">Just about 10% of the community identify as LGBTQ.. About half of the rest identify as allies while th e other half do not identify.</div>
+              
+        </div>
+        <div style="position: absolute;bottom: 175px;left: 0; font-family: sans-serif; font-size: 18px; font-weight: bold; color: grey; text-decoration: underline; cursor: pointer; padding-right: 80px;" onclick="next()">Next: <div id ="nextlink" style="display: inline;"></div></div>
       </div>
       <div id="chart_div" style="display: block; margin: 0; float: left; width: 70%; padding-top: 2px;"></div>
     </div>
 
     <div class="custom-select" style=" align-content: center; display: block; ">
     <select id="choose" style="display: block; margin: 0 auto;" onchange="drawChart()">
-      <option value="AY" selected="selected">Years in Data Viz?</option>
+      <option value="AY" selected="selected">Years in Data Viz</option>
       <option value="AZ">Everyone in DVS</option>
       <option value="B">Where did you learn Data Viz?</option>
-      <option value="D">Skills to improve next?</option>
       <option value="E">Freelancer/consultant?</option>
+      <option value="D">Skills to improve next?</option>
       <option value="F">Focus of data visualization in your work?</option>
       <option value="G">Hired for Data Viz vs part of the job description?</option>
-      <option value="H">Doing Data Viz vs expectations?</option>
       <option value="I">Your Role?</option>
-      <option value="J">Yearly Pay?</option>
       <option value="M">Separate Data Viz Group vs Data Viz in a team?</option>
+      <option value="AR">The organization you work for is in which of the following areas?</option>
+      <option value="J">Yearly Pay?</option>
+      <option value="H">Doing Data Viz vs expectations?</option>
       <option value="X">Choosing your own tools?</option>
       <option value="AC">Audience uses Data Viz?</option>
       <option value="AE">What's your relationship with stakeholders?</option>
       <option value="AP">Spending time with Data Viz ahead?</option>
       <option value="AQ">Educational background?</option>
-      <option value="AR">The organization you work for is in which of the following areas?</option>
       <option value="AS">Undergrad Major??</option>
       <option value="AT">Gender identity?</option>
       <option value="AU">LGBTQ+?</option>
@@ -90,6 +120,8 @@
       }  
       drawChart();
         }
+
 </script>
+
 
 </html>
